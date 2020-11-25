@@ -9,3 +9,7 @@ div {
 canvas {
     border: 2px solid burlywood;
 }
+
+#myFirstButton {
+    font-size: 14px;
+}

@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Tema 2</title>
+</head>
+<body>
+    
+    <canvas id="canvasNew" width="600px" height="400px" style="border: 2px solid black;"></canvas>
+    <button id="randomButton">Randomize!</button>
+    <script>
+        var x, y;
+        var canvas = document.getElementById("canvasNew");
+        /** @type {CanvasRenderingContext2D} */
+        const context = canvas.getContext('2d');
+
+        const button = document.getElementById("randomButton");
+        button.addEventListener("click", function() {
+                x = Math.random() * 550;
+                y = Math.random() * 350;
+            context.fillStyle = "yellow";
+            context.fillRect(x, y, 50, 50);
+        })        
+    </script>
+    <script src="tema2.js"></script>
+</body>
+</html>
