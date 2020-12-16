@@ -2,10 +2,12 @@ export class Animal {
     constructor(name) {
         this.name = name;
     }
+
     canEat() {
         console.log(this.name + " can eat");
     }
-    canSpeak() {
+
+    speak() {
         console.log(this.name + " can speak");
     }
 }

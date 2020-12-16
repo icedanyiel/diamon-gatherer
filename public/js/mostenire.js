@@ -1,33 +1,33 @@
 class Animal {
-    constructor(color) {
-        this.color = color;
-    }
+  constructor(color) {
+    this.color = color;
+  }
 
-    details() {
-        console.log(`This ${this.color} ${this.type()} says ${this.sound()}`)
-    }
-    
-    type() {
-        return 'animal';
-    }
+  details() {
+    console.log(`This ${this.color} ${this.type()} says ${this.sound()}`);
+  }
 
-    sound() {
-        return 'animal noises';
-    }
+  type() {
+    return 'animal';
+  }
+
+  sound() {
+    return 'animal noises';
+  }
 }
 
 class Dog extends Animal {
-    type() {
-        return 'dog';
-    }
+  type() {
+    return 'dog';
+  }
 
-    sound() {
-        return 'ham ham';
-    }
+  sound() {
+    return 'ham ham';
+  }
 }
 
 let animal = new Animal('blue');
 animal.details();
 
 let dog = new Dog('brown');
-dog.details;
+dog.details();
