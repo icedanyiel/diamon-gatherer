@@ -62,47 +62,6 @@ const context = canvas.getContext('2d');
 
 const socket = io();
 
-document.getElementById('join-chat-button').addEventListener('click', function() {
-    const input = document.getElementById('user-name-input');
-    const userName = input.value;
-    if (userName.length > 0) {
-        document.getElementById('user-name-missing').classList.add('display-none');
-        socket.emit('join-chat', userName);
-    } else {
-        document.getElementById('user-name-missing').classList.remove('display-none');
-    }
-})
-
-socket.on('joined-chat', function(usersNo) {
-    console.log('You joined chat!');
-    document.getElementById('menu').classList.add('display-none');
-    document.getElementById('chat-container').classList.remove('display-none');
-    // TEMA 3
-    document.getElementById('online-users').innerHTML = usersNo;
-    // END
-})
-
-document.getElementById('send-message-button').addEventListener('click', function() {
-    const input = document.getElementById('message');
-    const color = document.getElementById("color").value;
-    const message = input.value;
-    input.value='';
-    socket.emit('send-message', message, color);
-})
-
-socket.on('new-message', function(message) {
-    const messagesContainer = document.getElementById('chat-messages');
-    const messageElement = document.createElement('p');
-    messageElement.innerHTML = message;
-    messagesContainer.appendChild(messageElement);
-})
-
-document.getElementById('leave-chat-button').addEventListener('click', function () {
-    const input = document.getElementById('user-name-input');
-    const userName = input.value;
-    socket.emit('leave-chat', userName);
-})
-
 socket.on('menu', function() {
     // console.log('You left chat!');
     document.getElementById('menu').classList.remove('display-none');
@@ -214,6 +173,7 @@ socket.on('game-over', function (imageId, gameId) {
 })
 
 document.getElementById('back-to-menu').addEventListener('click', function() {
+    document.getElementById('game-container').classList.add('display-none');
     socket.emit('back-to-menu', document.getElementById('back-to-menu').dataset.gameId);
 })
 

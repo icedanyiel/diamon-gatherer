@@ -1,0 +1,20 @@
+.display-none {
+    display: none;
+}
+
+#chat-container {
+    margin-top: 10px;
+}
+
+#chat-messages {
+    border: 1px solid black;
+    width: 500px;
+    height: 500px;
+    overflow: auto;
+    margin-bottom: 10px;
+    padding: 2px;
+}
+
+#leave-chat-button {
+    margin-top: 10px;
+}

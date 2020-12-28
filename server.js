@@ -42,31 +42,6 @@ io.on('connection', function(socket) {
     }
   })
 
-  socket.on('join-chat', function (userName) {
-    console.log('[USER JOINED CHAT]', socket.id, userName);
-    chatUsers[socket.id] = userName;
-    socket.join('chat');
-    // TEMA 3
-    socket.emit('joined-chat', Object.keys(chatUsers).length );
-    io.to('chat').emit('new-message', `${userName} joined the chat.`);
-    // END
-  })
-
-  socket.on('send-message', function (message, color) {
-    console.log('[USER SENT MESSAGE]', message);
-    io.to('chat').emit('new-message', `${chatUsers[socket.id]}: <span style="color:${color};">${message}</span>`);
-  })
-
-  socket.on('leave-chat', function (userName) {
-    console.log('[USER LEFT CHAT]', socket.id);
-    delete chatUsers[socket.id];
-    socket.leave('chat');
-    socket.emit('menu');
-    // TEMA 3
-    io.to('chat').emit('new-message', `${userName} left the chat.`);
-    // END
-  })
-///////////////////////// C H A T  E N D //////////////////////////////////////////////
   socket.on('create-game', function (gameName) {
     console.log('[NEW GAME CREATED]');
     const gameId = 'game-' + socket.id;
@@ -190,7 +165,6 @@ function gameLoop(roomId) {
   }
 }
 
-const chatUsers = {};
 const games = {};
 const players = {};
 const bullets = {};
